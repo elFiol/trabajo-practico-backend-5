@@ -17,3 +17,18 @@ export const editarRecetas = async(req, res) => {
     }
 }
 
+export const crearRecetas = async (req, res) => {
+    try {
+      const recetaNueva = new Recetas(req.body);
+      await recetaNueva.save();
+      res.status(201).json({
+        mensaje: "la receta fue creada correctamente",
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({
+        mensaje: "No se pudo procesar la solicitud de crear la receta",
+      });
+    }
+}; 
+
