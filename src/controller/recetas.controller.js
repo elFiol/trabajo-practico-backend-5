@@ -17,6 +17,19 @@ export const editarRecetas = async(req, res) => {
     }
 }
 
+export const obtenerReceta = async(req,res) => {
+    try{
+        console.log(req.params.id)
+        const receta = await Recetas.findById(req.params.id)
+        res.status(200).json(receta)
+    }catch(error){
+        console.log(error)
+        res.status(404).json({
+            mensaje: "no se pudo encontrar la receta"
+        })
+    }
+}
+
 export const crearRecetas = async (req, res) => {
     try {
       const recetaNueva = new Recetas(req.body);
@@ -46,6 +59,18 @@ export const borrarRecetas = async (req, res) => {
       console.log(error);
       res.status(500).json({
         mensaje: "ocurrio un error al querer intentar borrar la receta",
+      });
+    }
+};
+
+export const listarColores = async (req, res) => {
+    try {
+      const colores = await Color.find();
+      res.status(200).json(colores);
+    } catch (error) {
+      console.log(error);
+      res.status(404).json({
+        mensaje: "no se pudo encontrar la lista de colores",
       });
     }
 };
