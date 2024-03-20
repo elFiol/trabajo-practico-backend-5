@@ -43,6 +43,6 @@ const recetasSchema = new mongoose.Schema({
   },
 });
 
-const Color = mongoose.model("Color", recetasSchema);
+const Recetas = mongoose.model("Recetas", recetasSchema);
 
-export default Color;
+export default Recetas;
