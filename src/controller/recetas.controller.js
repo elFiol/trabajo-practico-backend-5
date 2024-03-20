@@ -63,14 +63,14 @@ export const borrarRecetas = async (req, res) => {
     }
 };
 
-export const listarColores = async (req, res) => {
+export const listarRecetas = async (req, res) => {
     try {
-      const colores = await Color.find();
-      res.status(200).json(colores);
+      const recetas = await Recetas.find();
+      res.status(200).json(recetas);
     } catch (error) {
       console.log(error);
       res.status(404).json({
-        mensaje: "no se pudo encontrar la lista de colores",
+        mensaje: "no se pudo encontrar la lista de Recetas",
       });
     }
 };
