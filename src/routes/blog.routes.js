@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listarRecetas, crearRecetas, borrarRecetas, editarRecetas, agregarUsuario } from "../controller/recetas.controller";
+import { listarRecetas, crearRecetas, borrarRecetas, editarRecetas, agregarUsuario } from "../controller/recetas.controller.js";
 
 const Recetasrouter = Router();
 
